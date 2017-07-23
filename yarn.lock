@@ -304,9 +304,9 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
-av1-scripts@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/av1-scripts/-/av1-scripts-1.0.2.tgz#165cfccdf999f72107b13b52afb0b5c675035d7a"
+av1-scripts@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/av1-scripts/-/av1-scripts-1.0.6.tgz#6bd9516da08566459176fcbc1b4f4943111c2e7a"
   dependencies:
     aws-sdk "^2.80.0"
     commander "^2.10.0"
