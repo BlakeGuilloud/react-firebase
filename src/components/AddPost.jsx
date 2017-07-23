@@ -9,29 +9,60 @@ import {
   Button,
 } from 'react-bootstrap';
 
+import { Header } from './';
+
 const AddPost = (props) => {
   const {
     handleChange,
     title,
     body,
+    image,
+    author,
     handleSubmit,
   } = props;
 
   return (
     <div className="AddPost">
-      <h2 className="bg-success">
-        Create a new post
-      </h2>
+      <Header
+        title="Create a new post"
+        buttonText="View posts"
+        buttonLink="/"
+      />
       <Row>
         <Col md={8} mdOffset={2} xs={10} xsOffset={1}>
-          <FormGroup>
-            <ControlLabel>Title</ControlLabel>
-            <FormControl
-              value={title}
-              name="title"
-              onChange={handleChange}
-            />
-          </FormGroup>
+          <Row>
+            <Col sm={6}>
+              <FormGroup>
+                <ControlLabel>Author</ControlLabel>
+                <FormControl
+                  value={author}
+                  name="author"
+                  onChange={handleChange}
+                />
+              </FormGroup>
+            </Col>
+            <Col sm={6}>
+              <FormGroup>
+                <ControlLabel>Image URL</ControlLabel>
+                <FormControl
+                  value={image}
+                  name="image"
+                  onChange={handleChange}
+                />
+              </FormGroup>
+            </Col>
+            <Col sm={12}>
+              <FormGroup>
+                <ControlLabel>Title</ControlLabel>
+                <FormControl
+                  value={title}
+                  name="title"
+                  onChange={handleChange}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          
           <FormGroup>
             <ControlLabel>Body</ControlLabel>
             <FormControl
@@ -61,6 +92,8 @@ AddPost.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default AddPost;

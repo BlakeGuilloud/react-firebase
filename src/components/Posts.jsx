@@ -1,5 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Button,
+  Media,
+} from 'react-bootstrap';
+
+import { Header } from './';
 
 const Posts = (props) => {
   const {
@@ -11,30 +17,49 @@ const Posts = (props) => {
 
   const renderLoading = () => <div>Loading...</div>;
 
-  const renderPost = key =>
-    <div key={key}>
-      <div>Title: {posts[key].title}</div>
-      <div>Body: {posts[key].body}</div>
-      <div>Upvotes: {posts[key].upvote}</div>
-      <div>Downvotes: {posts[key].downvote}</div>
-      <div>
-        <button
-          onClick={() => handleUpvote(posts[key], key)}
-          type="button"
-        >
-          Upvote
-        </button>
-        <button 
-          onClick={() => handleDownvote(posts[key], key)}
-          type="button"
-        >
-          Downvote
-        </button>
+  const renderPost = key => {
+    const { title, body, upvote, downvote, image, author } = posts[key];
+
+    return (
+      <div className="post" key={key}>
+        <Media>
+          <Media.Left>
+            <div className="image-container">
+              <img className="image-item" alt="" src={image} />
+            </div>
+          </Media.Left>
+          <Media.Body>
+            <Media.Heading>{title}</Media.Heading>
+            <p>
+              {body}
+            </p>
+            <p>
+              - {author}
+            </p>
+            <div className="vote">
+              <span className="vote-item">
+                <span onClick={() => handleUpvote(posts[key], key)} className="glyphicon glyphicon-thumbs-up text-success" aria-hidden="true" />
+                <span>{upvote}</span>
+              </span>
+              <span className="vote-item">
+                <span onClick={() => handleDownvote(posts[key], key)} className="glyphicon glyphicon-thumbs-down text-danger" aria-hidden="true" />
+                <span>{downvote}</span>
+              </span>
+            </div>
+          </Media.Body>
+        </Media>
       </div>
-    </div>;
+    );
+  };
+
 
   return (
     <div className="Posts">
+      <Header
+        title="React and Firebase Blog"
+        buttonText="Add Post"
+        buttonLink="/add-post"
+      />
       {
         loading ?
         renderLoading() :

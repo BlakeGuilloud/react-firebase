@@ -5,6 +5,8 @@ class AddPostContainer extends Component {
   state = {
     title: '',
     body: '',
+    image: '',
+    author: '',
   };
 
   handleChange = evt => {
@@ -21,6 +23,8 @@ class AddPostContainer extends Component {
     this.props.firebase.ref('posts').push({
       title: this.state.title,
       body: this.state.body,
+      author: this.state.author,
+      image: this.state.image,
       upvote: 0,
       downvote: 0
     });
@@ -35,6 +39,8 @@ class AddPostContainer extends Component {
     const props = {
       title: this.state.title,
       body: this.state.body,
+      image: this.state.image,
+      author: this.state.author,
       handleChange: this.handleChange,
       handleSubmit: this.handleSubmit,
     };
