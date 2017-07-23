@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App';
+import { browserHistory } from 'react-router';
+
+import Routes from './routes';
 import { registerServiceWorker } from './utils';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+require('./App.css');
+
+ReactDOM.render(
+  <Routes history={browserHistory} />,
+  document.getElementById('root')
+);
+
 registerServiceWorker();
