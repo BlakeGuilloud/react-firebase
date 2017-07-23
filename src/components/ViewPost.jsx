@@ -48,7 +48,7 @@ const ViewPost = (props) => {
       <Grid>
         <Row>
           <Col xs={2}>
-            <Image responsive src={post.image} rounded />
+            <Image className="image-item" alt="" responsive src={post.image || "http://images.clipartpanda.com/ladybug-clipart-ladybug-clipart-single2.gif"} rounded />
           </Col>
           <Col xs={10}>
             {post.body}

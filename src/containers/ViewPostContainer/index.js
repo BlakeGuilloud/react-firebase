@@ -44,6 +44,8 @@ class ViewPostContainer extends Component {
 
     const errors = {};
 
+    if (!this.state.newComment) errors.newComment = 'Invalid comment.';
+
     if (Object.keys(errors).length) {
       this.setState({ errors });
     } else {
@@ -60,7 +62,7 @@ class ViewPostContainer extends Component {
       });
 
       this.setState({
-        title: '',
+        newComment: '',
         errors: {},
       });
     }

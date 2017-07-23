@@ -25,7 +25,7 @@ const Posts = (props) => {
         <Media>
           <Media.Left>
             <div className="image-container">
-              <img className="image-item" alt="" src={image} />
+              <img className="image-item" alt="" src={image || "http://images.clipartpanda.com/ladybug-clipart-ladybug-clipart-single2.gif"} />
             </div>
           </Media.Left>
           <Media.Body>
@@ -55,6 +55,14 @@ const Posts = (props) => {
     );
   };
 
+  const renderPostList = () => {
+    return (
+      posts ?
+      Object.keys(posts).map(renderPost) :
+      'No posts.'
+    )
+  }
+
 
   return (
     <div className="Posts">
@@ -66,7 +74,7 @@ const Posts = (props) => {
       {
         loading ?
         renderLoading() :
-        Object.keys(posts).map(renderPost)
+        renderPostList()
       }
     </div>
   );

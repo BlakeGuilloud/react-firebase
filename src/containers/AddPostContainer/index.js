@@ -40,7 +40,8 @@ class AddPostContainer extends Component {
         author,
         image,
         upvote: 0,
-        downvote: 0
+        downvote: 0,
+        comments: [],
       });
 
       this.setState({
