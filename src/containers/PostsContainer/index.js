@@ -5,8 +5,10 @@ class PostsContainer extends Component {
   handleUpvote = (post, key) => {
     this.props.firebase.ref('posts/' + key)
       .set({
-        title: post.title,
-        body: post.body,
+        title: post.title || '',
+        body: post.body || '',
+        author: post.author || '',
+        image: post.image || '',
         upvote: post.upvote + 1,
         downvote: post.downvote
       });
@@ -19,7 +21,7 @@ class PostsContainer extends Component {
         body: post.body || '',
         author: post.author || '',
         image: post.image || '',
-        upvote: post.upvote || '',
+        upvote: post.upvote,
         downvote: post.downvote + 1
       });
   }

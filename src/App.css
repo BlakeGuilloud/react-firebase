@@ -21,6 +21,7 @@ a {
 
 .post {
   border-bottom: 2px solid #eee;
+  padding: 5px;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -50,7 +51,7 @@ a {
   cursor: pointer;
   display: flex;
   height: 35px;
-  width: 35px;
+  min-width: 35px;
   justify-content: space-between;
   align-items: center;
   margin-right: 15px;

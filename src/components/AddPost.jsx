@@ -7,6 +7,7 @@ import {
   FormControl,
   ControlLabel,
   Button,
+  HelpBlock,
 } from 'react-bootstrap';
 
 import { Header } from './';
@@ -19,6 +20,7 @@ const AddPost = (props) => {
     image,
     author,
     handleSubmit,
+    errors,
   } = props;
 
   return (
@@ -32,13 +34,16 @@ const AddPost = (props) => {
         <Col md={8} mdOffset={2} xs={10} xsOffset={1}>
           <Row>
             <Col sm={6}>
-              <FormGroup>
+              <FormGroup validationState={errors.author && 'error'}>
                 <ControlLabel>Author</ControlLabel>
                 <FormControl
                   value={author}
                   name="author"
                   onChange={handleChange}
                 />
+                <HelpBlock>
+                  {errors.author}
+                </HelpBlock>
               </FormGroup>
             </Col>
             <Col sm={6}>
@@ -52,18 +57,21 @@ const AddPost = (props) => {
               </FormGroup>
             </Col>
             <Col sm={12}>
-              <FormGroup>
+              <FormGroup validationState={errors.title && 'error'}>
                 <ControlLabel>Title</ControlLabel>
                 <FormControl
                   value={title}
                   name="title"
                   onChange={handleChange}
                 />
+                <HelpBlock>
+                  {errors.title}
+                </HelpBlock>
               </FormGroup>
             </Col>
           </Row>
           
-          <FormGroup>
+          <FormGroup validationState={errors.body && 'error'}>
             <ControlLabel>Body</ControlLabel>
             <FormControl
               value={body}
@@ -72,6 +80,9 @@ const AddPost = (props) => {
               componentClass="textarea"
               rows={5}
             />
+            <HelpBlock>
+              {errors.body}
+            </HelpBlock>
           </FormGroup>
           <FormGroup>
             <Button 
@@ -88,6 +99,7 @@ const AddPost = (props) => {
 };
 
 AddPost.propTypes = {
+  errors: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
