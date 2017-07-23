@@ -13,17 +13,20 @@ const Header = (props) => {
   return (
     <div className="jumbotron">
       <h2>{title}</h2>
-      <Button onClick={() => browserHistory.push(buttonLink)}>
-        {buttonText}
-      </Button>
+      {
+        buttonText &&
+        <Button onClick={() => browserHistory.push(buttonLink)}>
+          {buttonText}
+        </Button>
+      }
     </div>
   );
 };
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonLink: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  buttonLink: PropTypes.string,
 };
 
 export default Header;

@@ -43,8 +43,18 @@ a {
   font-size: 20px;
 }
 
+.glyphicon-menu-right {
+  font-size: 30px;
+}
+
+.media-right {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
 .vote {
   display: flex;
+  padding-right: 30px;
 }
 
 .vote-item {
@@ -54,5 +64,9 @@ a {
   min-width: 35px;
   justify-content: space-between;
   align-items: center;
-  margin-right: 15px;
+   margin-right: 15px; 
+}
+
+.comment {
+  margin-top: 30px;
 }

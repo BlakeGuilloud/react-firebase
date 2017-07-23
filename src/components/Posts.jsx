@@ -12,6 +12,7 @@ const Posts = (props) => {
     handleUpvote,
     handleDownvote,
     posts,
+    handleRedirect,
   } = props;
 
   const renderLoading = () => <div>Loading...</div>;
@@ -46,6 +47,9 @@ const Posts = (props) => {
               </span>
             </div>
           </Media.Body>
+          <Media.Right onClick={() => handleRedirect(key)}>
+            <span className="glyphicon glyphicon-menu-right" aria-hidden="true" />
+          </Media.Right>
         </Media>
       </div>
     );
@@ -72,6 +76,7 @@ Posts.propTypes = {
   loading: PropTypes.bool.isRequired,
   handleUpvote: PropTypes.func.isRequired,
   handleDownvote: PropTypes.func.isRequired,
+  handleRedirect: PropTypes.func.isRequired,
   posts: PropTypes.object.isRequired,
 };
 

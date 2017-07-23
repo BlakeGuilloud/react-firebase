@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
+
 import { Posts } from '../../components';
 
 class PostsContainer extends Component {
@@ -26,12 +28,15 @@ class PostsContainer extends Component {
       });
   }
 
+  handleRedirect = id => browserHistory.push(`/view-post/${id}`);
+
   render() {
     const props = {
       loading: this.props.loading,
       posts: this.props.posts,
       handleDownvote: this.handleDownvote,
       handleUpvote: this.handleUpvote,
+      handleRedirect: this.handleRedirect,
     };
 
     return <Posts {...props} />;
